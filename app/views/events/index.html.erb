@@ -1,0 +1,33 @@
+<html>
+
+  <head>
+    <h2> Ini Index </h2>
+  </head>
+
+  <body>
+  <%= link_to "Tambah Data", new_event_path %>
+    <table>
+      <thead>
+        <th> Summary </th>
+        <th> Start At </th>
+        <th> End At </th>
+        <th> Location </th>
+        <th> Show </th>
+        <th> Edit </th>
+        <th> Delete </th>
+      </thead>
+      <% @events.each do |e| %>
+      <tbody>
+        <td> <%= e.summary %> </td>
+        <td> <%= e.start_at %> </td>
+        <td> <%= e.end_at %> </td>
+        <td> <%= e.location %> </td>
+        <td> <%= link_to 'Lihat detail', event_path(e) %></td>
+        <td> <%= link_to 'Edit', edit_event_path(e) %> </td>
+        <td> <%#= link_to 'Delete', contact_path(c), method: :delete %> </td>
+        <% end %>
+      </tbody>
+    </table>
+  </body>
+
+</html>

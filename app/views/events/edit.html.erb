@@ -1,0 +1,34 @@
+<hmtl>
+
+  <head>
+
+<script>
+function goBack() {
+    window.history.back();
+}
+</script>
+  </head>
+
+  <body>
+    <%= form_for(@event) do |e| %>
+      <%= e.label :summary  %>
+      <%= e.text_field :summary %>
+      <br/>
+      <br/>
+      <%= e.label :start_at %>
+      <%= e.text_field :start_at %>
+      <br/>
+      <br/>
+      <%= e.label :end_at %>
+      <%= e.text_field :end_at %>
+      <br/>
+      <br/>
+      <%= e.label :location %>
+      <%= e.text_field :location %>
+      <br/>
+      <br/>
+      <%= e.submit "Update" %>
+      <button onclick="goBack()">Cancel</button>
+    <% end %>
+  </body>
+</hmtl>
