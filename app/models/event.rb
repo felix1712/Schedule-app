@@ -1,3 +1,3 @@
 class Event < ApplicationRecord
-  validates :summary, :start_at, :end_at, presence: true
+  validates :summary, :start_at, :end_at, :title, presence: true
 end
