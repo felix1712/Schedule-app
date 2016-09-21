@@ -1,15 +1,11 @@
-<hmtl>
 
-  <head>
 
 <script>
 function goBack() {
     window.history.back();
 }
 </script>
-  </head>
 
-  <body>
     <%= form_for(@event) do |e| %>
       <%= e.label :summary  %>
       <%= e.text_field :summary %>
@@ -30,5 +26,4 @@ function goBack() {
       <%= e.submit "Save" %>
       <button onclick="goBack()">Cancel</button>
     <% end %>
-  </body>
-</hmtl>
+

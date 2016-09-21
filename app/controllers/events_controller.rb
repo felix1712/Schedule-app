@@ -3,6 +3,7 @@ class EventsController < ApplicationController
   def index
     @events = Event.all
   end
+
   def new
     @event = Event.new
   end
@@ -10,11 +11,10 @@ class EventsController < ApplicationController
   def create
     @event = Event.new(event_params)
 
-    if
-      @event.save
-      redirect_to root_path
-      else
-        render 'new'
+    if @event.save
+       redirect_to root_path
+    else
+       render 'new'
     end
   end
 
@@ -35,19 +35,15 @@ class EventsController < ApplicationController
     end
   end
 
-  before_filter :check_for_cancel, :only => [:create, :update]
-
-def check_for_cancel
-    if(params.key?("cancel"))
-        flash[:notice] = "Registration is cancelled. "
-        redirect_to root_path
-    end
-end
+  def destroy
+    Event.find(params[:id]).destroy
+    flash[:success] = "Data Dihapus"
+    redirect_to root_path
+  end
 
   private
 
   def event_params
-
     params.require(:event).permit(:summary, :start_at, :end_at, :location)
   end
 
