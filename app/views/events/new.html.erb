@@ -1,11 +1,5 @@
 
-
-<script>
-function goBack() {
-    window.history.back();
-}
-</script>
-
+    <%= @errors %>
     <%= form_for(@event) do |e| %>
       <%= e.label :summary  %>
       <%= e.text_field :summary %>
@@ -22,8 +16,32 @@ function goBack() {
       <%= e.label :location %>
       <%= e.text_field :location %>
       <br/>
+      <%= e.label :title %>
+      <%= e.text_field :title %>
+      <br/>
       <br/>
       <%= e.submit "Save" %>
       <button onclick="goBack()">Cancel</button>
     <% end %>
 
+ <!-- Trigger/Open The Modal -->
+<button id="myBtn">Open Modal</button>
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close">x</span>
+    <p>Some text in the Modal..</p>
+  </div>
+
+</div>
+
+<% content_for :script do %>
+<script>
+function goBack() {
+    window.history.back();
+}
+</script>
+<% end %>

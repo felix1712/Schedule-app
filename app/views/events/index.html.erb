@@ -6,6 +6,7 @@
         <th> Start At </th>
         <th> End At </th>
         <th> Location </th>
+        <th> Title </th>
         <th> Show </th>
         <th> Edit </th>
         <th> Delete </th>
@@ -16,6 +17,7 @@
         <td> <%= e.start_at %> </td>
         <td> <%= e.end_at %> </td>
         <td> <%= e.location %> </td>
+        <td> <%= e.title %> </td>
         <td> <%= link_to 'Lihat detail', event_path(e) %></td>
         <td> <%= link_to 'Edit', edit_event_path(e) %> </td>
         <td> <%= link_to 'Delete', event_path(e), method: :delete %> </td>

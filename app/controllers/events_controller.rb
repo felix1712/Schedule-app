@@ -14,6 +14,7 @@ class EventsController < ApplicationController
     if @event.save
        redirect_to root_path
     else
+       @errors = @event.errors.full_messages.to_sentence
        render 'new'
     end
   end
@@ -37,14 +38,14 @@ class EventsController < ApplicationController
 
   def destroy
     Event.find(params[:id]).destroy
-    flash[:success] = "Data Dihapus"
+    flash[:success] = 'Data Dihapus'
     redirect_to root_path
   end
 
   private
 
   def event_params
-    params.require(:event).permit(:summary, :start_at, :end_at, :location)
+    params.require(:event).permit(:summary, :start_at, :end_at, :location, :title)
   end
 
 end
